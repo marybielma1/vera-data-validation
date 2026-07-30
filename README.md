@@ -1,82 +1,148 @@
-# VERA — An AI Validation Layer for Data-Heavy Operations
+# VERA — AI Validation & Exception Management Platform for Mortgage Servicing
 
-**Catch every error before it reaches the customer — in seconds, around the clock.**
+**Catch the exception before it becomes the problem.**
 
-VERA is an AI validation tool that performs the exception-based checking operations teams do by hand — comparing entered data against source documents — but in seconds, with every check explainable and logged for audit.
+VERA validates mortgage-servicing data across operational handoffs, detects discrepancies, applies deterministic rules, and routes exceptions for human review before errors reach downstream systems or borrowers.
 
-Built independently by a frontline operations professional, not an engineering team, and demonstrated here on the mortgage-servicing workflows I know best. VERA exists because most operational problems don't need more people — they need smarter workflows.
+Built independently from six years of mortgage-servicing experience. All public demos use synthetic data.
 
-📸 **See it in action:** the screenshot below shows VERA catching four data-entry errors on a synthetic loan modification — including the exact dollar variance on each — and correctly placing the record on HOLD before it could be committed.
+## See VERA in Action
+
+The example below shows VERA detecting planted data-entry errors, calculating the exact differences, and placing the record on HOLD for human review.
 
 ![VERA catching errors](vera-validate-hold.png)
 
 ---
 
-## Two Engines, One Tool
+## Two Engines, One Platform
 
-### 🛡️ VERA Validate — Exception Detection & Pre-Commit QC
-Checks every record against its source documents before it's committed.
+### VERA Validate — Exception Detection & Pre-Boarding QC
 
-- Reads real document formats (approval letters, underwriting worksheets)
-- Compares entered terms against the source of truth, field by field
-- Flags every mismatch with an audit-ready comment and dollar variance
-- Catches in seconds what takes roughly 15 minutes to check manually · 100% accuracy across 100+ synthetic test records
+Checks entered servicing data against its source documents before the record moves downstream.
 
-### ⚙️ VERA Build — Automated Repayment Plan Structuring
-Turns messy prior-servicer transfer data into clean, structured repayment plans.
+- Reads approval letters and underwriting worksheets
+- Compares entered terms against the source of truth
+- Detects mismatched dates, rates, balances, payments, and terms
+- Calculates exact differences
+- Applies deterministic validation rules
+- Produces CLEAR or HOLD outcomes
+- Routes exceptions for human review
+- Demonstrated validation in about 7 seconds per loan versus 15–35 minutes of manual review
 
-- Reads dense, fixed-width prior-servicer transfer reports
-- Extracts plan terms, payment schedules, and frequency counts
-- Validates the math and flags judgment items for human review
-- Reduces hours of manual structuring to minutes, with zero errors across synthetic test plans
-
----
-
-## Why It Matters
-
-| Scale | 24/7 | Protect |
-|-------|------|---------|
-| More volume without more headcount | No breaks, no sick days, no missed rules | Errors caught before customers feel them |
-
-Bad transfer data becomes misapplied payments, wrong terms, escalations, and compliance exposure. VERA catches it upstream — before any of that reaches the customer.
+[View the VERA Validate demo](VERA_Validate_Demo.md)
 
 ---
 
-## How It Works (Demo)
+### VERA Build — Repayment-Plan Data Preparation
 
-VERA was prototyped using enterprise AI tooling (Microsoft Copilot) and a structured prompt framework grounded in six years of operations experience: source-of-truth hierarchy, field-level validation rules, exception handling, and audit logging.
+Turns dense prior-servicer transfer data into structured repayment-plan information.
 
-Full demo write-ups: [VERA Validate](VERA_Validate_Demo.md) · [VERA Build](VERA_Build_Demo.md)
+- Reads fixed-width transfer reports
+- Extracts plan balances, payment amounts, dates, and payment counts
+- Builds structured payment schedules
+- Validates calculations
+- Flags judgment items for human review
+- Demonstrated potential to save 120+ labor hours per 150-plan batch
 
-**VERA Validate — demonstration sequence**
-1. Clean record → CLEAR TO COMMIT (proves no false alarms)
-2. Real documents, terms match → CLEAR (reads a prose approval letter + a table-format worksheet, and understands that "three and seven-eighths percent" = "3.875%")
-3. Real documents, planted errors → HOLD (catches transposed rates, wrong dates, and balance errors — and calculates the exact dollar variance on each)
-
-**VERA Build — demonstration**
-Reads a multi-record transfer report and extracts a clean, structured repayment plan for any record: balance, total, payment count, full schedule — plus flagged items for review.
-
-*(Demo screenshots and synthetic sample documents are included in this repository.)*
+[View the VERA Build demo](VERA_Build_Demo.md)
 
 ---
 
-## About the Builder
+## Why VERA Matters
 
-**Mary Bielma** — operations professional with 6+ years across servicing transfers, loan boarding, loss mitigation, bankruptcy, and compliance. MIT Sloan Executive Education: *AI: Implications for Business Strategy* (Certificate) and *Machine Learning in Business* (in progress).
+Bad servicing data can create:
 
-VERA is the product of understanding operations deeply enough to translate real-world failures into AI-assisted controls.
+- Incorrect payment terms
+- Misapplied payments
+- Boarding errors
+- Customer escalations
+- Rework
+- Compliance exposure
 
----
-
-## What's Next
-
-VERA is an actively evolving project. Planned next steps:
-
-- Expand validation coverage to additional workflow types
-- Excel-native engine — most operations run on spreadsheets; a version that reads and validates tracker workbooks directly
-- Confidence scoring on each flagged exception to help teams triage review queues
-- Batch processing to validate an entire file in one pass with a summary exception report
+VERA moves validation upstream so teams can find exceptions before errors reach downstream systems or borrowers.
 
 ---
 
-**Note on data:** Every document and example in this repository is fully synthetic. No proprietary, customer, or company information is included. All names, numbers, balances, and dates are fictitious and created solely for demonstration, on my own time and equipment.
+## How VERA Works
+
+VERA was prototyped using Microsoft Copilot and a structured validation framework grounded in six years of mortgage-servicing operations.
+
+The framework includes:
+
+- Source-of-truth hierarchy
+- Field-level validation rules
+- Deterministic guardrails
+- Exception handling
+- Human-review routing
+- Explainable results
+- Audit-ready comments
+
+VERA does not make unsupported assumptions. When information is missing, unclear, or conflicting, it flags the record for review.
+
+---
+
+## VERA Validate Demonstration
+
+The repository includes examples showing:
+
+1. A clean record receiving a CLEAR result
+2. Matching terms across different document formats
+3. Planted errors receiving a HOLD result
+4. Exact differences identified for each exception
+
+Included screenshots:
+
+- `vera-validate-match.png`
+- `vera-validate-clear.png`
+- `vera-validate-hold.png`
+- `vera-validate-verdict.png`
+
+---
+
+## About the Creator
+
+Mary Bielma is a mortgage-servicing operations professional with 6+ years of experience across:
+
+- Servicing transfers
+- Loan boarding
+- Loss mitigation
+- Bankruptcy
+- Default servicing
+- Exception management
+- Compliance
+- Quality assurance
+- Process improvement
+
+She completed MIT Sloan Executive Education programs in:
+
+- Artificial Intelligence: Implications for Business Strategy
+- Machine Learning in Business, offered through MIT Sloan and MIT CSAIL
+
+VERA reflects the combination of mortgage-servicing expertise, AI, automation, operational controls, and exception management.
+
+**I know where servicing breaks. I use AI to fix it.**
+
+---
+
+## Project Status
+
+VERA is an independent, evolving demonstration project.
+
+Planned improvements include:
+
+- Additional servicing workflow types
+- Excel workbook validation
+- Batch processing
+- Summary exception reports
+- Confidence indicators
+- Expanded audit documentation
+
+---
+
+## Data and Intellectual Property Notice
+
+Every document, record, name, number, balance, and date used in this repository is synthetic.
+
+No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included.
+
+VERA was built independently for demonstration and professional portfolio purposes.
