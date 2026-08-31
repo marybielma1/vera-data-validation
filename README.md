@@ -2,33 +2,33 @@
 
 **Catch the exception before it becomes the problem.**
 
-VERA validates mortgage-servicing data across operational handoffs, detects discrepancies, applies deterministic rules, and routes exceptions for human review before errors reach downstream systems or borrowers.
+VERA is an independent, evolving AI-assisted validation and exception-management demonstration project for mortgage servicing. Using synthetic data and a structured validation framework, VERA compares defined servicing data with source documents, applies deterministic validation checks, calculates discrepancies, and routes exceptions for qualified human review.
 
-Built independently from six years of mortgage-servicing experience. All public demos use synthetic data.
+> **Scope and limitations:** VERA is not a production system and does not make autonomous servicing, compliance, credit, underwriting, or borrower-impacting decisions. All public demonstrations use synthetic data. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included.
 
 ## See VERA in Action
 
-The example below shows VERA detecting planted data-entry errors, calculating the exact differences, and placing the record on HOLD for human review.
+The example below shows VERA detecting planted data-entry discrepancies, calculating the exact differences, and placing the record on HOLD for human review.
 
-![VERA catching errors](vera-validate-hold.png)
+![VERA detection example](vera-validate-hold.png)
 
 ---
 
-## Two Modules
+## Two Capabilities
 
 ### VERA Validate — Exception Detection & Pre-Boarding QC
 
-Checks entered servicing data against its source documents before the record moves downstream.
+VERA Validate compares entered servicing data with its source documents before the record moves downstream.
 
 - Reads approval letters and underwriting worksheets
-- Compares entered terms against the source of truth
-- Normalizes values across formats, recognizing that "three and seven-eighths percent" and "3.875%" are the same value
-- Detects mismatched dates, rates, balances, payments, and terms
-- Calculates exact dollar differences on every exception
+- Compares entered terms against the defined source of truth
+- Normalizes values across formats, recognizing that "three and seven-eighths percent" and "3.875%" express the same value
+- Identifies mismatched dates, rates, balances, payments, and terms
+- Calculates the exact dollar difference on each discrepancy
 - Applies deterministic validation rules
 - Produces CLEAR or HOLD outcomes
 - Routes exceptions for human review
-- Demonstrated validation in about 7 seconds per loan versus about 15 minutes of manual review, measured on synthetic test loans
+- Demonstrated review in about 7 seconds per loan versus about 15 minutes of manual review, measured on synthetic test loans
 - 100+ synthetic test records at 100% accuracy, including a clean-record control test confirming zero false positives
 
 [View the VERA Validate demo](VERA_Validate_Demo.md)
@@ -37,12 +37,12 @@ Checks entered servicing data against its source documents before the record mov
 
 ### VERA Build — Repayment-Plan Data Preparation
 
-Turns dense prior-servicer transfer data into structured repayment-plan information.
+VERA Build converts dense prior-servicer transfer data into structured repayment-plan information for human review.
 
 - Reads fixed-width transfer reports
 - Extracts plan balances, payment amounts, dates, and payment counts
 - Builds structured payment schedules
-- Validates calculations
+- Performs defined calculation checks
 - Flags judgment items for human review, including received-versus-scheduled payment dates, prior completed modifications, and missing arrears detail
 
 [View the VERA Build demo](VERA_Build_Demo.md)
@@ -51,7 +51,7 @@ Turns dense prior-servicer transfer data into structured repayment-plan informat
 
 ## Why VERA Matters
 
-Bad servicing data can create:
+Mortgage-servicing data discrepancies can create:
 
 - Incorrect payment terms
 - Misapplied payments
@@ -60,15 +60,15 @@ Bad servicing data can create:
 - Rework
 - Compliance exposure
 
-VERA moves validation upstream so teams can find exceptions before errors reach downstream systems or borrowers.
+VERA is designed to move validation upstream so qualified reviewers can identify potential exceptions before downstream processing or borrower impact.
 
 ---
 
 ## How VERA Works
 
-VERA is a prompt-engineered validation workflow prototyped using Microsoft Copilot.
+VERA was prototyped using Microsoft Copilot and a structured validation framework informed by six years of mortgage-servicing operations experience.
 
-Copilot is the engine. The rules are mine. I authored the source-of-truth hierarchy, the field-level match logic, the value normalization, the exception routing, and the hold and clear decisions. I built it on my own laptop, on my own time, using synthetic documents I created to match the formats I worked in for six years.
+Copilot is the engine. The rules are mine. I authored the source-of-truth hierarchy, the field-level match logic, the value normalization, the exception routing, and the hold and clear decisions, working on my own equipment and my own time using synthetic documents I created to match the formats I worked in.
 
 The framework includes:
 
@@ -80,18 +80,18 @@ The framework includes:
 - Explainable results
 - Audit-ready comments
 
-VERA does not make unsupported assumptions. When information is missing, unclear, or conflicting, it flags the record for review.
+When information is missing, unclear, or conflicting, VERA flags the record for human review rather than making an unsupported assumption.
 
 ---
 
-## VERA Validate Demonstration
+## Demonstration Examples
 
-The repository includes examples showing:
+The repository includes synthetic examples showing:
 
 1. A clean record receiving a CLEAR result
 2. Matching terms across different document formats
-3. Planted errors receiving a HOLD result
-4. Exact differences identified for each exception
+3. Planted discrepancies receiving a HOLD result
+4. Defined differences identified for each exception
 
 Included screenshots:
 
@@ -104,7 +104,7 @@ Included screenshots:
 
 ## About the Creator
 
-Mary Bielma is a mortgage-servicing operations professional with 6+ years of experience across:
+Mary Bielma is a mortgage-servicing operations and controls professional with 6+ years of experience across:
 
 - Servicing transfers and acquisition loan boarding
 - Cross-system data mapping
@@ -116,16 +116,13 @@ Mary Bielma is a mortgage-servicing operations professional with 6+ years of exp
 - Quality assurance
 - Process improvement
 
-She spent four years boarding inbound transfer batches, roughly three per month, ranging from 10 to 525 loans each, mapping prior-servicer data into LSAMS, CMOD, and IAssist.
+Mary spent four years boarding inbound servicing-transfer batches, roughly three per month ranging from 10 to 525 loans each, mapping prior-servicer data into LSAMS, CMOD, and IAssist.
 
-She completed MIT Sloan Executive Education programs in:
+She completed MIT Sloan Executive Education's **Artificial Intelligence: Implications for Business Strategy** program, and **Machine Learning in Business**, offered through MIT Sloan and MIT CSAIL.
 
-- Artificial Intelligence: Implications for Business Strategy, Certificate, May 2026
-- Machine Learning in Business, MIT Sloan and MIT CSAIL, Completed July 2026
+VERA reflects the combination of mortgage-servicing expertise, AI-assisted workflows, operational controls, data validation, and exception management.
 
-VERA reflects the combination of mortgage-servicing expertise, AI, automation, operational controls, and exception management.
-
-**I know where servicing breaks. I use AI to fix it.**
+**I know where servicing breaks. I use AI to help fix it.**
 
 ---
 
@@ -148,6 +145,4 @@ Planned improvements include:
 
 Every document, record, name, number, balance, and date used in this repository is synthetic.
 
-No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included.
-
-VERA was built independently for demonstration and professional portfolio purposes.
+VERA was built independently for demonstration and professional-portfolio purposes. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included.
