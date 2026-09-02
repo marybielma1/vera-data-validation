@@ -146,3 +146,5 @@ Planned improvements include:
 Every document, record, name, number, balance, and date used in this repository is synthetic.
 
 VERA was built independently for demonstration and professional-portfolio purposes. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included.
+
+Performance figures are modeled on real industry deadlines and labor costs from professional experience, not on any employer's data or systems.
