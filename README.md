@@ -29,6 +29,7 @@ VERA Validate compares entered servicing data with its source documents before t
 - Produces CLEAR or HOLD outcomes
 - Routes exceptions for human review
 - Demonstrated review in about 7 seconds per loan versus about 15 minutes of manual review, measured on synthetic test loans
+- Applied to a 500-record assignment, that projects to about 1 day of work instead of 7, an 86% reduction
 - 100+ synthetic test records at 100% accuracy, including a clean-record control test confirming zero false positives
 
 [View the VERA Validate demo](VERA_Validate_Demo.md)
