@@ -1,27 +1,28 @@
-# VERA Build — Demo Output
+# VERA Build: Demo Output
 
-**Engine:** VERA Build — *Automated Repayment Plan Boarding*
+**Engine:** VERA Build, repayment-plan data preparation
+
 **Input:** A synthetic prior-servicer transfer report (S2MR format) listing multiple loans.
-**Task:** Extract a clean, board-ready repayment plan for loan 0080012301.
 
-> All data is fully synthetic. See `/demo-documents/DEMO_S2MR_Transfer_Report.pdf` for the input.
+**Task:** Extract a structured repayment plan for loan 0080012301, ready for human review before boarding.
 
----
+All data in this demo is fully synthetic. No borrower, employer, or proprietary data is used. See `/demo-documents/DEMO_S2MR_Transfer_Report.pdf` for the input. This is a demonstration of a prototype, not a production result.
 
-## Result — Board-Ready Repayment Plan, Loan 0080012301
+## Result: structured repayment plan for loan 0080012301
 
 | Field | Value | Source |
 |---|---|---|
-| Loan Number | 0080012301 | header line |
-| Plan Type | 26 — Repayment Plan | "26 REPAYMENT PLAN" |
-| Principal Balance | $97,214.40 | "PRINCIPAL BALANCE 97,214.40" |
-| Plan Create Date | 08/22/25 | "A 08/22/25" |
-| Total Repay Amount | $6,842.40 | "REPAY TOTAL 6,842.40" |
-| Number of Payments | 6 | "CNT 6" |
-| Monthly Payment | $1,140.40 | every due-amount line |
+| Loan number | 0080012301 | Header line |
+| Plan type | 26 (Repayment plan) | "26 REPAYMENT PLAN" |
+| Principal balance | $97,214.40 | "PRINCIPAL BALANCE 97,214.40" |
+| Plan create date | 08/22/25 | "A 08/22/25" |
+| Total repay amount | $6,842.40 | "REPAY TOTAL 6,842.40" |
+| Number of payments | 6 | "CNT 6" |
+| Monthly payment | $1,140.40 | Every due-amount line |
 
-### Payment Schedule
-| # | Due Date | Amount |
+## Payment schedule
+
+| # | Due date | Amount |
 |---|---|---|
 | 1 | 09/01/25 | $1,140.40 |
 | 2 | 10/01/25 | $1,140.40 |
@@ -30,14 +31,14 @@
 | 5 | 01/01/26 | $1,140.40 |
 | 6 | 02/01/26 | $1,140.40 |
 
-### Flagged for Review (the judgment layer)
-1. **First payment received date vs. scheduled due date** — received 09/10/25, scheduled 09/01/25. Normal (late payment), but confirm which date should board.
-2. **Prior completed modification present** — a prior non-HAMP mod exists; confirm this repayment plan is the active workout.
-3. **Arrears ledger not shown** — confirm the arrears detail matches the $6,842.40 total before boarding.
+Check: 6 payments × $1,140.40 = $6,842.40, which matches the repay total in the report.
 
----
+## Flagged for human review
 
-**Why this matters:** A simple extraction tool would just copy the numbers. VERA Build
-extracts the plan AND applies the judgment a senior associate would — flagging the
-received-vs-due date nuance, the prior mod, and the missing arrears detail. That reasoning
-is the difference between automation and expertise.
+1. **First payment received date vs. scheduled due date.** Received 09/10/25, scheduled 09/01/25. This is a normal late payment, but a person should confirm which date should board.
+2. **Prior completed modification present.** A prior non-HAMP modification exists. Confirm this repayment plan is the active workout.
+3. **Arrears ledger not shown.** Confirm the arrears detail matches the $6,842.40 total before boarding.
+
+## Why this matters
+
+A simple extraction tool would just copy the numbers. VERA Build also flags items a senior associate would want to check before boarding: the received-vs-due date difference, the prior modification, and the missing arrears detail. A person makes the final call.
