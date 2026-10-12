@@ -25,7 +25,7 @@ Checks entered servicing data against its source documents before the record mov
 - Applies deterministic validation rules
 - Returns a CLEAR or HOLD result
 - Routes exceptions for human review
-- In testing on 100+ synthetic records, validation took about 7 seconds per loan, compared with about 15 minutes of manual review (up to 35 minutes for complex loans)
+- In testing on a small set of synthetic cases, validation took about 7 seconds per loan, compared with about 15 minutes of manual review based on my experience (up to 35 minutes for complex loans)
 
 [View the VERA Validate demo](VERA_Validate_Demo.md)
 
