@@ -12,7 +12,7 @@ A loan with no discrepancies, run first on purpose. All seven fields matched the
 
 **Verdict:** CLEAR TO BOARD
 
-**Purpose:** A validation tool that flags everything is not useful. This control test shows VERA did not raise false alarms on clean data. Across 100+ synthetic test records, VERA produced no false positives.
+**Purpose:** A validation tool that flags everything is not useful. This control test shows VERA did not raise a false alarm on a clean loan.
 
 ## Test 2: Document formats, terms match
 
