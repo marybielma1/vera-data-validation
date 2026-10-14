@@ -1,12 +1,12 @@
 # VERA Build: Demo Output
 
-**Engine:** VERA Build, repayment-plan data preparation
+**Part:** VERA Build, repayment-plan data preparation
 
 **Input:** A synthetic prior-servicer transfer report (S2MR format) listing multiple loans.
 
 **Task:** Extract a structured repayment plan for loan 0080012301, ready for human review before boarding.
 
-All data in this demo is fully synthetic. No borrower, employer, or proprietary data is used. See `/demo-documents/DEMO_S2MR_Transfer_Report.pdf` for the input. This is a demonstration of a prototype, not a production result.
+All data in this demo is fully synthetic. No borrower, employer, or proprietary data is used. See /demo-documents/DEMO_S2MR_Transfer_Report.pdf for the input. This is a demonstration of a prototype, not a production result.
 
 ## Result: structured repayment plan for loan 0080012301
 
@@ -31,7 +31,7 @@ All data in this demo is fully synthetic. No borrower, employer, or proprietary 
 | 5 | 01/01/26 | $1,140.40 |
 | 6 | 02/01/26 | $1,140.40 |
 
-Check: 6 payments × $1,140.40 = $6,842.40, which matches the repay total in the report.
+**Check:** 6 payments × $1,140.40 = $6,842.40, which matches the repay total in the report.
 
 ## Flagged for human review
 
