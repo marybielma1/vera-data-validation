@@ -1,10 +1,10 @@
-# VERA: AI Validation and Exception Management for Mortgage Servicing
+# VERA: AI-Assisted Validation and Exception Management for Mortgage Servicing
 
 **Catch the exception before it becomes the problem.**
 
 VERA is an independent prototype that checks mortgage-servicing data against its source documents, flags discrepancies, and routes exceptions to a person for review before errors reach downstream systems or borrowers.
 
-Built independently from six years of mortgage-servicing experience. All demos use synthetic data. VERA is a demonstration project, not a production system.
+Built independently, on my own time and equipment, from six years of mortgage-servicing experience. All demos use synthetic data. VERA is a demonstration project, not a production system.
 
 ## See VERA in action
 
@@ -12,7 +12,9 @@ The example below shows VERA catching planted data-entry errors, calculating the
 
 ![VERA catching errors](vera-validate-hold.png)
 
-## Two engines, one platform
+---
+
+## Two parts, one prototype
 
 ### VERA Validate: exception detection and pre-boarding QC
 
@@ -22,12 +24,14 @@ Checks entered servicing data against its source documents before the record mov
 - Compares entered terms against the source of truth
 - Detects mismatched dates, rates, balances, payments, and terms
 - Calculates the exact difference for each mismatch
-- Applies deterministic validation rules
+- Applies fixed, rule-based validation checks
 - Returns a CLEAR or HOLD result
 - Routes exceptions for human review
 - In testing on a small set of synthetic cases, validation took about 7 seconds per loan, compared with about 15 minutes of manual review based on my experience (up to 35 minutes for complex loans)
 
 [View the VERA Validate demo](VERA_Validate_Demo.md)
+
+---
 
 ### VERA Build: repayment-plan data preparation
 
@@ -38,9 +42,11 @@ Turns dense prior-servicer transfer data into structured repayment-plan informat
 - Builds structured payment schedules
 - Validates the calculations
 - Flags judgment items for human review
-- Projected savings of 120+ labor hours per 150-plan batch, estimated from manual processing times (a projection, not a production result)
+- Built to test whether repayment-plan data prep can be done faster than by hand. Tested on synthetic data only.
 
 [View the VERA Build demo](VERA_Build_Demo.md)
+
+---
 
 ## Why VERA matters
 
@@ -55,21 +61,25 @@ Bad servicing data can cause:
 
 VERA moves validation upstream, so teams can find exceptions before errors reach downstream systems or borrowers.
 
+---
+
 ## How VERA works
 
-VERA was prototyped with Microsoft Copilot and a structured validation framework based on six years of mortgage-servicing operations.
+VERA was prototyped with Microsoft Copilot and a structured validation framework based on six years of mortgage-servicing operations. I wrote the rules. Copilot runs them.
 
 The framework includes:
 
 - A source-of-truth hierarchy
 - Field-level validation rules
-- Deterministic guardrails
+- Rule-based guardrails
 - Exception handling
 - Human-review routing
 - Explainable results
 - Audit-ready comments
 
-VERA does not make unsupported assumptions. When information is missing, unclear, or conflicting, it flags the record for review.
+VERA is designed to flag a record for review when information is missing, unclear, or conflicting, instead of guessing.
+
+---
 
 ## Included demos
 
@@ -80,13 +90,17 @@ The repository includes examples showing:
 3. Planted errors receiving a HOLD result
 4. The exact differences identified for each exception
 
-Screenshots: `vera-validate-match.png`, `vera-validate-clear.png`, `vera-validate-hold.png`, `vera-validate-verdict.png`
+Screenshots: vera-validate-match.png, vera-validate-clear.png, vera-validate-hold.png, vera-validate-verdict.png
+
+---
 
 ## About the creator
 
 Mary Bielma is a mortgage-servicing operations professional with 6 years of experience in servicing transfers, loan boarding, loss mitigation, bankruptcy, default servicing, and exception management. She completed MIT Sloan Executive Education programs in Artificial Intelligence: Implications for Business Strategy and Machine Learning in Business (MIT Sloan and MIT CSAIL).
 
-**I know where servicing breaks. I use AI to help catch it.**
+I know where servicing breaks. I use AI to help catch it.
+
+---
 
 ## Project status
 
@@ -101,6 +115,8 @@ Planned improvements:
 - Confidence indicators
 - Expanded audit documentation
 
+---
+
 ## Data and intellectual property notice
 
-Every document, record, name, number, balance, and date in this repository is synthetic. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included. VERA was built independently for demonstration and professional portfolio purposes.
+Every document, record, name, number, balance, and date in this repository is synthetic. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included. VERA was built independently, on my own time and equipment, for demonstration and professional portfolio purposes.
