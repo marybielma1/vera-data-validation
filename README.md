@@ -119,4 +119,4 @@ Planned improvements:
 
 ## Data and intellectual property notice
 
-Every document, record, name, number, balance, and date in this repository is synthetic. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included. VERA was built independently, on my own time and equipment, for demonstration and professional portfolio purposes.
+Every document, record, name, number, balance, and date in this repository is synthetic. No borrower data, employer data, confidential information, proprietary system information, or company intellectual property is included. VERA was built independently, on my own time and equipment, for demonstration and professional portfolio purposes. Report layouts are modeled on common industry formats for realism; all codes, names, numbers, and values in them are fictitious.
